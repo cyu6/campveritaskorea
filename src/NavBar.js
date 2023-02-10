@@ -13,7 +13,8 @@ import MenuItem from '@mui/material/MenuItem';
 import Grid from '@mui/material/Grid';
 import AdbIcon from '@mui/icons-material/Adb';
 
-const pages = ['Products', 'Pricing', 'Blog'];
+// Add future pages here
+const pages = ['Past Mentors', 'Camp Alumni'];
 
 function NavBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
