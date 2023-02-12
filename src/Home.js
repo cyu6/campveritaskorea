@@ -2,10 +2,41 @@
 import './Home.css';
 import NavBar from './NavBar';
 
+import { ThemeProvider } from "@mui/material";
+import theme from "./theme";
+
 import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
+import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
+
+import HeaderImg from './img/header_transparent.png';
+
+const styles = {
+  headerBox: {
+    backgroundImage: `url(${HeaderImg})`,
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center center',
+    height: '700px',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  typewriter: {
+    mr: 2,
+    fontFamily: 'Fragment Mono',
+    fontWeight: 700,
+    letterSpacing: '.1rem',
+    color: '#2D3D63',
+    textDecoration: 'none',
+    overflow: 'hidden',
+    borderRight: '.1em solid #2D3D63',
+    width: 0,
+    animation: 'typing 3s steps(100, end) forwards, blink .7s infinite',
+    whiteSpace: 'nowrap'
+  }
+};
 
 function Introduction() {
   return (
@@ -34,7 +65,7 @@ function Introduction() {
 
 function WhatWeDo() {
   return (
-    <Grid container>
+    <Grid container sx={{ backgroundColor: '#2D3D63', color: '#ffffff' }}>
       <Grid item xs={6}>
         <Typography>
           What we do
@@ -62,7 +93,7 @@ function WhatWeDo() {
 
 function Testimonials() {
   return (
-    <div>
+    <Box sx={{backgroundColor: '#E1DFD9' }}>
       <Typography>
         Testimonials
       </Typography>
@@ -70,24 +101,24 @@ function Testimonials() {
         Hear from some of our former students, and see more about camp alumni here.
         {/* insert link to alumni tab */}
       </Typography>
-      <Grid container>
-        <Grid item xs={4}>
+      <Grid container sx={{ justifyContent: 'space-around' }}>
+        <Grid item xs="auto">
         <Typography>
             Placeholder quote
           </Typography>
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs="auto">
           <Typography>
             Placeholder video
           </Typography>
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs="auto">
           <Typography>
             Placeholder quote
           </Typography>
         </Grid>
       </Grid>
-    </div>
+    </Box>
   );
 }
 
@@ -132,23 +163,34 @@ function ContactUs() {
 
 function Home() {
   return (
-    <div className="Home">
-      <NavBar />
-      <Container>
-        {/* background image */}
-        <Typography>
-          Camp Veritas Korea
-        </Typography>
-        <Button>
-          Learn more 
-          {/* some CTA */}
-        </Button>
-      </Container>
-      <Introduction />
-      <WhatWeDo />
-      <Testimonials />
-      <ContactUs />
-    </div>
+    <ThemeProvider theme={theme}>
+      <div className="Home">
+        <NavBar />
+        <Box style={styles.headerBox} >
+          <Box>
+            <Box display='inline-block'>
+              <Typography variant="h1" gutterBottom
+                style={styles.typewriter}
+              >
+                RETHINKING EDUCATION
+              </Typography>
+            </Box>
+            <Typography variant="h6" sx={{ pl: '25%', pr: '25%'}}>
+              An annual summer camp on Jeju Island, Camp Veritas Korea offers unique opportunities to learn from and with Harvard, Yale, and Princeton 
+              college students.
+            </Typography>
+            <Button>
+              Learn more 
+              {/* some CTA */}
+            </Button>
+          </Box>
+        </Box>
+        <Introduction />
+        <WhatWeDo />
+        <Testimonials />
+        <ContactUs />
+      </div>
+    </ThemeProvider>
   );
 }
 
