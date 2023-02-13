@@ -25,16 +25,12 @@ const styles = {
   },
   typewriter: {
     mr: 2,
-    fontFamily: 'Fragment Mono',
-    fontWeight: 700,
     letterSpacing: '.1rem',
-    color: '#2D3D63',
     textDecoration: 'none',
     overflow: 'hidden',
     borderRight: '.1em solid #2D3D63',
     width: 0,
     animation: 'typing 3s steps(100, end) forwards, blink .7s infinite',
-    whiteSpace: 'nowrap'
   }
 };
 
@@ -169,19 +165,28 @@ function Home() {
         <Box style={styles.headerBox} >
           <Box>
             <Box display='inline-block'>
-              <Typography variant="h1" gutterBottom
+              <Typography variant="h1"
                 style={styles.typewriter}
               >
                 RETHINKING EDUCATION
               </Typography>
             </Box>
-            <Typography variant="h6" sx={{ pl: '25%', pr: '25%'}}>
+            <Typography variant="h6" sx={{ pl: '20%', pr: '20%', pb: '20px' }}>
               An annual summer camp on Jeju Island, Camp Veritas Korea offers unique opportunities to learn from and with Harvard, Yale, and Princeton 
               college students.
             </Typography>
-            <Button>
-              Learn more 
-              {/* some CTA */}
+            <Button sx={
+              {
+                backgroundColor: theme.palette.primary.main,
+                color: 'white',
+                ':hover': 
+                {
+                  color: theme.palette.primary.main,
+                  backgroundColor: 'white',
+                },
+              }}
+            >
+              I'm interested
             </Button>
           </Box>
         </Box>

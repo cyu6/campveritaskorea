@@ -10,7 +10,7 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
 
-import HeaderImg from './img/header_transparent.png';
+import HeaderImg from './img/mentors_transparent.png';
 
 const styles = {
   headerBox: {
@@ -18,23 +18,19 @@ const styles = {
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center center',
-    height: '700px',
+    height: '600px',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center'
   },
   typewriter: {
     mr: 2,
-    fontFamily: 'Fragment Mono',
-    fontWeight: 700,
     letterSpacing: '.1rem',
-    color: '#2D3D63',
     textDecoration: 'none',
     overflow: 'hidden',
     borderRight: '.1em solid #2D3D63',
     width: 0,
     animation: 'typing 3s steps(100, end) forwards, blink .8s infinite',
-    whiteSpace: 'nowrap'
   }
 };
 
@@ -52,13 +48,9 @@ function Mentors() {
                 PAST MENTORS
               </Typography>
             </Box>
-            <Typography variant="h6" sx={{ pl: '25%', pr: '25%'}}>
-              See our past mentors and their class offerings.
+            <Typography variant="h6" sx={{ pl: '10%', pr: '10%', textAlign: 'center'}}>
+              Meet our past mentors and learn about their class offerings.
             </Typography>
-            <Button>
-              This is a button
-              {/* some CTA */}
-            </Button>
           </Box>
         </Box>
       </div>

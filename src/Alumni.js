@@ -25,23 +25,19 @@ const styles = {
   },
   typewriter: {
     mr: 2,
-    fontFamily: 'Fragment Mono',
-    fontWeight: 700,
     letterSpacing: '.1rem',
-    color: '#2D3D63',
     textDecoration: 'none',
     overflow: 'hidden',
     borderRight: '.1em solid #2D3D63',
     width: 0,
     animation: 'typing 3s steps(100, end) forwards, blink .8s infinite',
-    whiteSpace: 'nowrap'
   }
 };
 
 function Alumni() {
   return (
     <ThemeProvider theme={theme}>
-      <div className="CampAlumni">
+      <div className="Mentors">
         <NavBar />
         <Box style={styles.headerBox} >
           <Box>
@@ -52,13 +48,9 @@ function Alumni() {
                 CAMP ALUMNI
               </Typography>
             </Box>
-            <Typography variant="h6" sx={{ pl: '25%', pr: '25%'}}>
-              See our camp alumni and what they're up to now.
+            <Typography variant="h6" sx={{ pl: '10%', pr: '10%', textAlign: 'center'}}>
+              Meet some of our camp alumni and catch up with them on where they are today.
             </Typography>
-            <Button>
-              This is a button
-              {/* some CTA */}
-            </Button>
           </Box>
         </Box>
       </div>

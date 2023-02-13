@@ -1,29 +1,46 @@
 import { createTheme, responsiveFontSizes } from '@mui/material/styles';
 
-let theme = createTheme({
-  palette: {
-    primary: {
-      main: '#2D3D63'
+const defaultTheme = createTheme({})
+const { breakpoints } = defaultTheme
+
+let theme = createTheme(defaultTheme, 
+  {
+    palette: {
+      primary: {
+        main: '#2D3D63'
+      },
+      secondary: {
+        main: '#ffffff'
+      },
     },
-    secondary: {
-      main: '#ffffff'
+  }
+);
+
+theme = createTheme(theme,
+  {
+    typography: {
+      h1: {
+        fontFamily: 'Fragment Mono',
+        fontWeight: 700,
+        color: '#2D3D63',
+        whiteSpace: 'nowrap',
+        [breakpoints.down("lg")]: {
+          whiteSpace: 'normal'
+        }
+      },
+      h6: {
+        fontFamily: 'Quattrocento',
+        fontWeight: 700
+      },
+      body1: {
+        fontWeight: 500,
+      },
+      button: {
+        
+      },
     },
-  },
-  typography: {
-    h1: {
-      fontSize: '80px'
-    },
-    subtitle1: {
-      fontSize: 12,
-    },
-    body1: {
-      fontWeight: 500,
-    },
-    button: {
-      fontStyle: 'italic',
-    },
-  },
-});
+  }
+);
 
 theme = responsiveFontSizes(theme);
 
