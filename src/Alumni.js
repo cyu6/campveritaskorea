@@ -7,8 +7,6 @@ import theme from "./theme";
 
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
-import Button from '@mui/material/Button';
 
 import HeaderImg from './img/header_transparent.png';
 
