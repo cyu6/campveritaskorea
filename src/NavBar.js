@@ -12,12 +12,13 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import Grid from '@mui/material/Grid';
-import AdbIcon from '@mui/icons-material/Adb';
 
 import { Outlet, Link } from "react-router-dom";
 
+import Logo from './cvklogo_white.png';
+
 // Add future pages here
-const pages = ['mentors', 'alumni'];
+const pages = ['mentors', 'alumni', 'contact'];
 
 function NavBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -41,7 +42,7 @@ function NavBar() {
               alignItems="center"
             >
               <Grid item xs={4}>
-                <AdbIcon sx={{ mr: 1 }} />
+                <img src={Logo} alt="Logo" style={{ width: '30px', height: '30px', paddingRight: '10px', margin: 'auto' }} />
                 <Typography
                   variant="h5"
                   noWrap

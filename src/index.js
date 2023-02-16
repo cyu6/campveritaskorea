@@ -5,6 +5,7 @@ import './index.css';
 import Home from './Home';
 import Mentors from './Mentors';
 import Alumni from './Alumni';
+import Contact from './Contact';
 import ErrorPage from './ErrorPage';
 import reportWebVitals from './reportWebVitals';
 
@@ -16,6 +17,7 @@ root.render(
         <Route index element={<Home />} />
         <Route path="mentors" element={<Mentors />} />
         <Route path="alumni" element={<Alumni />} />
+        <Route path="contact" element={<Contact />} />
         <Route path="*" element={<ErrorPage />} />
       </Route>
     </Routes>

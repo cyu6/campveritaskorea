@@ -28,16 +28,29 @@ theme = createTheme(theme,
           whiteSpace: 'normal'
         }
       },
+      h3: {
+        fontFamily: 'Fragment Mono',
+        fontWeight: 400,
+        fontSize: '3.5rem'
+      },
       h6: {
         fontFamily: 'Quattrocento',
-        fontWeight: 700
+        fontWeight: 700,
+      },
+      subtitle1: {
+        fontFamily: 'Quattrocento',
+        fontWeight: 700,
+        fontSize: '1rem',
+        lineHeight: 1.5
       },
       body1: {
-        fontWeight: 500,
+        fontFamily: 'Biryani',
+        fontWeight: 300,
+        fontSize: '0.9rem'
       },
       button: {
-        
-      },
+        fontFamily: 'Biryani'
+      }
     },
   }
 );
