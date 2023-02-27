@@ -46,3 +46,31 @@
   from { border-color: transparent }
   to { border-color: #2D3D63; }
 }
+
+table {
+  table-layout: fixed;
+  width: 90%;
+  height: 90%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  border-collapse: collapse;
+  border: 2px solid white;
+}
+
+tr {
+  border: 1px solid white;
+}
+
+th {
+  width: 10%;
+  border-right: 1px solid white;
+}
+
+td {
+  width: 20%;
+}
+
+th,
+td {
+  padding: 10px;
+}

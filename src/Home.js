@@ -1,6 +1,7 @@
 // import logo from './logo.svg';
 import './Home.css';
 import NavBar from './NavBar';
+import Footer from './Footer';
 
 import { ThemeProvider } from "@mui/material";
 import theme from "./theme";
@@ -76,12 +77,12 @@ function Introduction() {
 
 function WhatWeDo() {
   return (
-    <Grid container sx={{ backgroundColor: '#2D3D63', color: '#ffffff' }}>
+    <Grid container sx={{ backgroundColor: '#2D3D63', color: '#ffffff', minHeight: '600px' }}>
       <Grid item xs={6} sx={{ textAlign: 'left', pl: '5%', pr: '5%' }}>
         <Typography variant="h3" sx={{ pt: '5%', letterSpacing: '.1rem' }} gutterBottom >
           WHAT WE DO
         </Typography>
-        <Typography variant="body1">
+        <Typography variant="body1" sx={{ fontSize: '16px', lineHeight: '1.7', pb: '16px' }}>
           We have classes for students in: grades 1-2, grades 3-4, grade 5, grade 6, grade 7, and grade 8. 
           We believe a small classroom setting is important for the best learning and thus we guarantee that the class size is 
           no larger than 7 students. An example schedule may look like the one on the right.
@@ -95,6 +96,7 @@ function WhatWeDo() {
             mb: "5%",
             color: theme.palette.primary.main,
             backgroundColor: 'white',
+            padding: '10px',
             ':hover': 
             {
               backgroundColor: theme.palette.primary.main,
@@ -105,19 +107,19 @@ function WhatWeDo() {
           Past mentors
         </Button>
       </Grid>
-      <Grid item xs={6}>
+      <Grid item xs={6} direction="column" alignItems="center" justifyContent="center">
         <table>
           <tr>
             <th>9:00 - 9:50</th>
-            <td>Science (biology, chemistry, physics, geology, etc.)</td>
+            <td>Science (e.g. biology, chemistry)</td>
           </tr>
           <tr>
             <th>10:00 - 10:50</th>
-            <td>Mathematics (algebra, geometry, combinatorics, number theory)</td>
+            <td>Mathematics (e.g. algebra, geometry)</td>
           </tr>
           <tr>
             <th>11:00 - 11:50</th>
-            <td>Creative writing (poetry, short stories, novella, etc.)</td> 
+            <td>Creative writing (e.g. short stories, novella)</td> 
           </tr>
           <tr>
             <th>12:00 - 12:50</th>
@@ -129,15 +131,15 @@ function WhatWeDo() {
           </tr>
           <tr>
             <th>14:00 - 14:50</th>
-            <td>Literature (selected readings include The Odyssey and Antigone)</td>
+            <td>Literature (e.g. The Odyssey, Catcher in the Rye)</td>
           </tr>
           <tr>
             <th>15:00 - 15:50</th>
-            <td>Philosophy</td>
+            <td>Philosophy (e.g. Aristotle, Nietzsche)</td>
           </tr>
           <tr>
             <th>16:00 - 16:50</th>
-            <td>Extracurricular time (coding, songwriting, dance, etc.)</td>
+            <td>Extracurriculars (e.g. coding, songwriting)</td>
           </tr>
         </table>
       </Grid>
@@ -152,8 +154,7 @@ function Testimonials() {
         TESTIMONIALS
       </Typography>
       <Typography variant="subtitle1" gutterBottom >
-        Hear from some of our former students, and see more about camp alumni here.
-        {/* insert link to alumni tab */}
+        Hear from some of our former students, and learn more about our camp alumni here.
       </Typography>
       <Grid container sx={{ justifyContent: 'space-around' }}>
         <Grid item xs="auto">
@@ -242,6 +243,7 @@ function Home() {
               {
                 backgroundColor: theme.palette.primary.main,
                 color: 'white',
+                padding: '20px',
                 ':hover': 
                 {
                   color: theme.palette.primary.main,
@@ -257,6 +259,7 @@ function Home() {
         <WhatWeDo />
         <Testimonials />
         <ContactUs />
+        <Footer />
       </div>
     </ThemeProvider>
   );
