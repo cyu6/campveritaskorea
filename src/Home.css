@@ -51,8 +51,6 @@ table {
   table-layout: fixed;
   width: 90%;
   height: 90%;
-  margin-top: 5%;
-  margin-bottom: 5%;
   border-collapse: collapse;
   border: 2px solid white;
 }

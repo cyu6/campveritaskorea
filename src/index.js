@@ -3,9 +3,10 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './index.css';
 import Home from './Home';
+import About from './About';
 import Mentors from './Mentors';
 import Alumni from './Alumni';
-import Contact from './Contact';
+import Summer22 from './Summer22';
 import ErrorPage from './ErrorPage';
 import reportWebVitals from './reportWebVitals';
 
@@ -15,9 +16,10 @@ root.render(
     <Routes>
       <Route path="/">
         <Route index element={<Home />} />
+        <Route path="about" element={<About />} />
         <Route path="mentors" element={<Mentors />} />
         <Route path="alumni" element={<Alumni />} />
-        <Route path="contact" element={<Contact />} />
+        <Route path="summer'22" element={<Summer22 />} />
         <Route path="*" element={<ErrorPage />} />
       </Route>
     </Routes>

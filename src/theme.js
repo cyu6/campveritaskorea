@@ -40,7 +40,7 @@ theme = createTheme(theme,
       subtitle1: {
         fontFamily: 'Quattrocento',
         fontWeight: 700,
-        fontSize: '1rem',
+        fontSize: '1.2rem',
         lineHeight: 1.5
       },
       body1: {

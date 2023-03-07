@@ -2,6 +2,7 @@
 import './Home.css';
 import NavBar from './NavBar';
 import Footer from './Footer';
+import { useState } from 'react';
 
 import { ThemeProvider } from "@mui/material";
 import theme from "./theme";
@@ -9,10 +10,13 @@ import theme from "./theme";
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
+import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 
 import HeaderImg from './img/header_transparent.png';
 import IntroImg from './img/jeju1.jpg';
+
+import { send } from 'emailjs-com';
 
 const styles = {
   headerBox: {
@@ -103,11 +107,12 @@ function WhatWeDo() {
               color: 'white',
             },
           }}
+          href="/mentors"
         >
-          Past mentors
+          mentors
         </Button>
       </Grid>
-      <Grid item xs={6} direction="column" alignItems="center" justifyContent="center">
+      <Grid item xs={6} direction="column" alignItems="center" justifyContent="center" sx={{ mt: '2%', mb: '2%' }} >
         <table>
           <tr>
             <th>9:00 - 9:50</th>
@@ -147,76 +152,202 @@ function WhatWeDo() {
   );
 }
 
-function Testimonials() {
+function OutsideActivities() {
   return (
-    <Box sx={{backgroundColor: '#E1DFD9' }}>
-      <Typography variant="h3" sx={{ pt: "2%" }}>
-        TESTIMONIALS
+    <Box sx={{backgroundColor: '#E1DFD9', pb: '2%' }}>
+      <Typography variant="h3" sx={{ pt: "2%", pb: '2%' }}>
+        OUTSIDE THE CLASSROOM
       </Typography>
-      <Typography variant="subtitle1" gutterBottom >
-        Hear from some of our former students, and learn more about our camp alumni here.
+      <Typography variant="subtitle1" gutterBottom sx={{ pl: '15%', pr: '15%' }} >
+        Mentorship doesn't only happen during class! 
+        <br/>
+        We organize a variety of activities for mentors and mentees to interact outside the classroom, including settings which extend the mentorship of Camp Veritas even after the camp is over.
+        <br/>
+        <br/>
+        In 2022, we had:
+        <br/>
+        general college application info session | US boarding school info session (Phillips Exeter) | UK boarding school info session (Seven Oaks)
+        | Mt. Halla hike | basketball and soccer games | MIT student Q&A | year-round Zoom classes
       </Typography>
+      <Box sx={{ p: '2%' }} />
       <Grid container sx={{ justifyContent: 'space-around' }}>
-        <Grid item xs="auto">
-          <Typography>
-            Placeholder quote
-          </Typography>
+        <Grid item xs="4">
+          placeholder image
         </Grid>
-        <Grid item xs="auto">
-          <Typography>
-            Placeholder video
-          </Typography>
+        <Grid item xs="4">
+          placeholder image
         </Grid>
-        <Grid item xs="auto">
-          <Typography>
-            Placeholder quote
-          </Typography>
+        <Grid item xs="4">
+          placeholder image
+        </Grid>
+        <Grid item xs="4">
+          placeholder image
+        </Grid>
+        <Grid item xs="4">
+          placeholder image
+        </Grid>
+        <Grid item xs="4">
+          placeholder image
         </Grid>
       </Grid>
     </Box>
   );
 }
 
-function ContactUs() {
+
+function LearnMore() {
   return (
-    <Grid container>
+    <Grid container sx={{ backgroundColor: '#2D3D63', color: '#ffffff' }}>
       <Grid item xs={6}>
-        <Typography variant="h3" >
+        <Box style={styles.introBox } />
+      </Grid>
+      <Grid item xs={6} sx={{ pl: "5%", pr: "5%", display: "flex" }}>
+        <Box style={styles.introContent} >
+          <Typography variant="h3" sx={{ pt: '5%', letterSpacing: '.1rem' }} gutterBottom >
+            LEARN MORE
+          </Typography>
+          <Typography variant="subtitle1" sx={{ pb: '20px' }} >
+            Still curious about Camp Veritas? Check out our other pages, featuring our mentors and mentees!
+          </Typography>
+          <Typography variant="body1" sx={{ pb: '5%' }} >
+            If you have any questions that can't be answered by the information available on the website, feel free to drop us a message in the contact form below and we'll respond to you as quickly as possible!
+          </Typography>
+          <Stack direction="row" spacing={4} sx={{ pb: '10%'}}>
+            <Button sx={
+              {
+                color: theme.palette.primary.main,
+                backgroundColor: 'white',
+                padding: '10px',
+                ':hover': 
+                {
+                  backgroundColor: theme.palette.primary.main,
+                  color: 'white',
+                },
+              }}
+              href="/about"
+            >
+              About Us
+            </Button>
+            <Button sx={
+              {
+                color: theme.palette.primary.main,
+                backgroundColor: 'white',
+                padding: '10px',
+                ':hover': 
+                {
+                  backgroundColor: theme.palette.primary.main,
+                  color: 'white',
+                },
+              }}
+              href="/alumni"
+            >
+              camp alumni
+            </Button>
+            <Button sx={
+              {
+                color: theme.palette.primary.main,
+                backgroundColor: 'white',
+                padding: '10px',
+                ':hover': 
+                {
+                  backgroundColor: theme.palette.primary.main,
+                  color: 'white',
+                },
+              }}
+              href="/summer'22"
+            >
+              summer 2022
+            </Button>
+          </Stack>
+        </Box>
+      </Grid>
+    </Grid>
+  );
+}
+
+function ContactUs() {
+  const [toSend, setToSend] = useState({
+    from_name: '',
+    message: '',
+    reply_to: '',
+  });
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    send(
+      'service_ptd31do',
+      'template_q7u656q',
+      toSend,
+      '-YCXwxbWGU5rS3Zqb'
+    )
+      .then((response) => {
+        console.log('SUCCESS!', response.status, response.text);
+      })
+      .catch((err) => {
+        console.log('FAILED...', err);
+      });
+  };
+
+  const handleChange = (e) => {
+    setToSend({ ...toSend, [e.target.name]: e.target.value });
+  };
+
+  return (
+    <Grid container sx={{ pt: '2%', pb: '2%' }}>
+      <Grid item xs={1} />
+      <Grid item xs={4}>
+        <Typography variant="h3" gutterBottom >
           CONTACT US
         </Typography>
         <Typography variant="subtitle1">
-          Interested in participating in Camp Veritas Korea as a student?
-          <br />
-          Email us at campveritaskorea@gmail.com to learn more.
-          <br />
-          <br />
+          Interested in participating in Camp Veritas Korea?
+        </Typography>
+        <Typography variant="body1" style={{ fontSize: '16px' }} >
+          Email us at <a href="mailto:campveritaskorea@gmail.com" style={{ color: theme.palette.primary.main, textDecoration: 'underline' }}>campveritaskorea@gmail.com</a> or fill out the contact form.
+        </Typography>
+        <br />
+        <Typography variant="subtitle1">
           Interested in being a mentor at Camp Veritas Korea?
-          <br />
-          Applications will be released soon, stay tuned for updates.
         </Typography>
-        {/* add a button for interest form? maybe? */}
-        {/* add a button for email us */}
-        {/* think I might just turn the below into a footer */}
-        <br />
-        <br />
-        <br />
-
-        <Typography>
-          Camp Veritas Korea
-          123 Anywhere St.
-          Any City, ST 12345
-        </Typography>
-        <Typography>
-          Tel. 123-456-7890
-          Email: campveritaskorea@gmail.com
-          Instagram: @summer.veritas
+        <Typography variant="body1" style={{ fontSize: '16px' }} >
+          This year's application cycle is unfortunately closed. Stay tuned for 2024!
         </Typography>
       </Grid>
-      <Grid item xs={6}>
-        <Typography>
-          Placeholder image
-        </Typography>
+      <Grid item xs={2} />
+      <Grid item xs={4} sx={{ justifyContent: 'space-around', minHeight: '500px' }}>
+        <form onSubmit={onSubmit}>
+          <input
+            type='text'
+            name='reply_to'
+            placeholder='Email'
+            value={toSend.reply_to}
+            onChange={handleChange}
+            style={{ padding: '10px', fontFamily: 'Biryani', width: '100%' }}
+          />
+          <Box sx={{ p: '10px' }} />
+          <input
+            type='text'
+            name='from_name'
+            placeholder='First and last name'
+            value={toSend.from_name}
+            onChange={handleChange}
+            style={{ padding: '10px', fontFamily: 'Biryani', width: '100%' }}
+          />
+          <Box sx={{ p: '10px' }} />
+          {/* TODO: change input type to be multi line */}
+          <input
+            type='text'
+            name='message'
+            placeholder='Message'
+            value={toSend.message}
+            onChange={handleChange}
+            style={{ padding: '10px', fontFamily: 'Biryani', width: '100%', height: '300px' }}
+          />
+          <Box sx={{ p: '10px' }} />
+          <Button type='submit'>Submit</Button>
+        </form>
       </Grid>
+      <Grid item xs={1} />
     </Grid>
   );
 }
@@ -251,13 +382,15 @@ function Home() {
                 },
               }}
             >
+              {/* TODO: link to the contact section at the bottom of the page */}
               I'm interested
             </Button>
           </Box>
         </Box>
         <Introduction />
         <WhatWeDo />
-        <Testimonials />
+        <OutsideActivities />
+        <LearnMore />
         <ContactUs />
         <Footer />
       </div>

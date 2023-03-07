@@ -18,7 +18,7 @@ import { Outlet, Link } from "react-router-dom";
 import Logo from './cvklogo_white.png';
 
 // Add future pages here
-const pages = ['mentors', 'alumni', 'contact'];
+const pages = ['about', 'mentors', 'alumni', 'summer\'22'];
 
 function NavBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -41,8 +41,10 @@ function NavBar() {
               justifyContent="space-around"
               alignItems="center"
             >
-              <Grid item xs={4}>
-                <img src={Logo} alt="Logo" style={{ width: '30px', height: '30px', paddingRight: '10px', margin: 'auto' }} />
+              <Grid item xs={1} >
+                <img src={Logo} alt="Logo" style={{ width: '30px', height: '30px', ml: 'auto' }} />
+              </Grid>
+              <Grid item xs={4} sx={{ textAlign: 'left' }}>
                 <Typography
                   variant="h5"
                   noWrap
@@ -54,7 +56,7 @@ function NavBar() {
                     fontWeight: 700,
                     letterSpacing: '.1rem',
                     color: 'inherit',
-                    textDecoration: 'none',
+                    textDecoration: 'none'
                   }}
                 >
                   Camp Veritas Korea
