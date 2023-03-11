@@ -12,6 +12,11 @@ import Stack from '@mui/material/Stack';
 
 import HeaderImg from './img/header_transparent.png';
 import Haze from './img/mentors/placeholder.png';
+import Harrison from './img/mentors/harrison.png';
+
+import hike from './img/hike.png';
+import josh from './img/josh.png';
+import threefour from './img/3_4_graders.png';
 
 const styles = {
   headerBox: {
@@ -57,7 +62,7 @@ function About() {
         <Box sx={{ pl: '5%', pr: '5%' }}>
           <Box sx={{ p: '2%' }} />
           <Stack direction="row" justifyContent="center" alignItems="flex-start" spacing={8}>
-            <Box sx={{ width: '60%' }}>
+            <Box sx={{ width: '80%' }}>
               <Typography variant="body1" style={{ fontSize: '20px' }}>
                 Veritas Education is an education startup that was founded by two Yalies in 2022.
                 Its annual summer program, <b>Camp Veritas</b>, offers unique opportunities to learn the liberal arts from Harvard, Yale, and Princeton undergraduates.
@@ -65,9 +70,6 @@ function About() {
                 <br />
                 The first ever iteration of the program ran from late June to early August 2022 at Jeju Island, South Korea.
               </Typography>
-            </Box>
-            <Box sx={{ width: '40%' }}>
-              placeholder image
             </Box>
           </Stack>
           <Box sx={{ p: '2%' }} />
@@ -105,13 +107,14 @@ function About() {
               </Typography>
             </Box>
             <Box sx={{ width: '50%' }}>
-              placeholder image
+              <img src={josh} alt="Josh in the classroom" style={{ maxWidth: '50%', height: 'auto' }} />
+              <img src={threefour} alt="3rd and 4th graders" style={{ maxWidth: '50%', height: 'auto' }} />
             </Box>
           </Stack>
           <Box sx={{ p: '1%' }} />
           <Stack direction="row" justifyContent="center" alignItems="flex-start" spacing={8}>
             <Box sx={{ width: '50%' }}>
-              placeholder image
+              <img src={hike} alt="hiking with mentors" style={{ maxWidth: '100%', height: 'auto' }} />
             </Box>
             <Box sx={{ width: '50%' }}>
               <Typography variant="body1" style={{ fontSize: '20px' }}>
@@ -151,11 +154,11 @@ function About() {
             </Box>
             <Box sx={{ width: '50%' }}>
               <Box style={{ 
-                  backgroundImage: `url(${Haze})`,
+                  backgroundImage: `url(${Harrison})`,
                   backgroundSize: 'cover',
                   backgroundRepeat: 'no-repeat',
                   backgroundPosition: 'center center',
-                  width: '500px',
+                  maxWidth: '500px',
                   height: '500px',
                   marginBottom: '10px'
                 }}

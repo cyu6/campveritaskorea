@@ -12,9 +12,16 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
+import ImageList from '@mui/material/ImageList';
+import ImageListItem from '@mui/material/ImageListItem';
 
 import HeaderImg from './img/header_transparent.png';
 import IntroImg from './img/jeju1.jpg';
+
+import bball from './img/bball.png';
+import fifth from './img/5_graders.png';
+import soccer from './img/soccer.png';
+import songwriting from './img/songwriting.png';
 
 import { send } from 'emailjs-com';
 
@@ -152,6 +159,25 @@ function WhatWeDo() {
   );
 }
 
+const itemData = [
+  {
+    img: bball,
+    title: 'Basketball with mentors',
+  },
+  {
+    img: fifth,
+    title: '5th grade class',
+  },
+  {
+    img: soccer,
+    title: 'Soccer with mentors',
+  },
+  {
+    img: songwriting,
+    title: 'Songwriting extracurricular',
+  }
+];
+
 function OutsideActivities() {
   return (
     <Box sx={{backgroundColor: '#E1DFD9', pb: '2%' }}>
@@ -170,26 +196,20 @@ function OutsideActivities() {
         | Mt. Halla hike | basketball and soccer games | MIT student Q&A | year-round Zoom classes
       </Typography>
       <Box sx={{ p: '2%' }} />
-      <Grid container sx={{ justifyContent: 'space-around' }}>
-        <Grid item xs="4">
-          placeholder image
-        </Grid>
-        <Grid item xs="4">
-          placeholder image
-        </Grid>
-        <Grid item xs="4">
-          placeholder image
-        </Grid>
-        <Grid item xs="4">
-          placeholder image
-        </Grid>
-        <Grid item xs="4">
-          placeholder image
-        </Grid>
-        <Grid item xs="4">
-          placeholder image
-        </Grid>
-      </Grid>
+      <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+        <ImageList sx={{ width: 900, height: 1200 }} cols={2} rowHeight={300}>
+          {itemData.map((item) => (
+            <ImageListItem key={item.img}>
+              <img
+                src={`${item.img}?w=300&h=300&fit=crop&auto=format`}
+                srcSet={`${item.img}?w=300&h=300&fit=crop&auto=format&dpr=2 2x`}
+                alt={item.title}
+                loading="lazy"
+              />
+            </ImageListItem>
+          ))}
+        </ImageList>
+      </Box>
     </Box>
   );
 }
@@ -212,7 +232,8 @@ function LearnMore() {
           <Typography variant="body1" sx={{ pb: '5%' }} >
             If you have any questions that can't be answered by the information available on the website, feel free to drop us a message in the contact form below and we'll respond to you as quickly as possible!
           </Typography>
-          <Stack direction="row" spacing={4} sx={{ pb: '10%'}}>
+          {/* TODO: fix janky wrapping */}
+          <Stack direction="row" spacing={0} sx={{ pb: '10%', flexWrap: 'wrap' }}>
             <Button sx={
               {
                 color: theme.palette.primary.main,
@@ -230,6 +251,7 @@ function LearnMore() {
             </Button>
             <Button sx={
               {
+                marginLeft: 4,
                 color: theme.palette.primary.main,
                 backgroundColor: 'white',
                 padding: '10px',
@@ -245,6 +267,7 @@ function LearnMore() {
             </Button>
             <Button sx={
               {
+                marginLeft: 4,
                 color: theme.palette.primary.main,
                 backgroundColor: 'white',
                 padding: '10px',
@@ -265,6 +288,7 @@ function LearnMore() {
   );
 }
 
+// TODO: move this out to its own page
 function ContactUs() {
   const [toSend, setToSend] = useState({
     from_name: '',
@@ -286,6 +310,10 @@ function ContactUs() {
       .catch((err) => {
         console.log('FAILED...', err);
       });
+    var frm = document.getElementsByName('contact')[0];
+    frm.submit(); // Submit the form
+    frm.reset();  // Reset all form data
+    return false; // Prevent page refresh
   };
 
   const handleChange = (e) => {
@@ -299,23 +327,25 @@ function ContactUs() {
         <Typography variant="h3" gutterBottom >
           CONTACT US
         </Typography>
-        <Typography variant="subtitle1">
+        <Typography variant="subtitle1" sx={{ pb: '10px' }} >
           Interested in participating in Camp Veritas Korea?
+          <br/>
+          Interested in being a mentor at Camp Veritas Korea?
         </Typography>
-        <Typography variant="body1" style={{ fontSize: '16px' }} >
-          Email us at <a href="mailto:campveritaskorea@gmail.com" style={{ color: theme.palette.primary.main, textDecoration: 'underline' }}>campveritaskorea@gmail.com</a> or fill out the contact form.
+        <Typography variant="body1" style={{ fontSize: '16px'}} >
+          Email us at <a href="mailto:campveritaskorea@gmail.com" style={{ color: theme.palette.primary.main, textDecoration: 'underline' }}>campveritaskorea@gmail.com</a> or fill out the contact form on the right.
         </Typography>
-        <br />
+        {/* <br />
         <Typography variant="subtitle1">
           Interested in being a mentor at Camp Veritas Korea?
         </Typography>
         <Typography variant="body1" style={{ fontSize: '16px' }} >
           This year's application cycle is unfortunately closed. Stay tuned for 2024!
-        </Typography>
+        </Typography> */}
       </Grid>
       <Grid item xs={2} />
       <Grid item xs={4} sx={{ justifyContent: 'space-around', minHeight: '500px' }}>
-        <form onSubmit={onSubmit}>
+        <form onSubmit={onSubmit} name="contact">
           <input
             type='text'
             name='reply_to'
@@ -334,9 +364,7 @@ function ContactUs() {
             style={{ padding: '10px', fontFamily: 'Biryani', width: '100%' }}
           />
           <Box sx={{ p: '10px' }} />
-          {/* TODO: change input type to be multi line */}
-          <input
-            type='text'
+          <textarea
             name='message'
             placeholder='Message'
             value={toSend.message}
