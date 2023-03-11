@@ -1,20 +1,31 @@
 {
   "files": {
     "main.css": "/static/css/main.4afa22b2.css",
-    "main.js": "/static/js/main.043abf52.js",
+    "main.js": "/static/js/main.61a58185.js",
     "static/js/787.9d2b8caa.chunk.js": "/static/js/787.9d2b8caa.chunk.js",
+    "static/media/hike.png": "/static/media/hike.4b83c4dd397eea67526a.png",
+    "static/media/soccer.png": "/static/media/soccer.cf9883ebd28f5e226787.png",
+    "static/media/josh.png": "/static/media/josh.3358bb7a495f649202b6.png",
+    "static/media/songwriting.png": "/static/media/songwriting.aa8d1a69d2cf6671219b.png",
+    "static/media/bball.png": "/static/media/bball.2ba9cd0a6b6eb43cd03b.png",
+    "static/media/5_graders.png": "/static/media/5_graders.d96f7d31063ba785350f.png",
+    "static/media/3_4_graders.png": "/static/media/3_4_graders.2aefeda05d4fcd8e7815.png",
     "static/media/header_transparent.png": "/static/media/header_transparent.ac3ac9d67b6d9f60adc9.png",
     "static/media/mentors_transparent.png": "/static/media/mentors_transparent.49cbab79ebd5de465bdc.png",
     "static/media/jeju1.jpg": "/static/media/jeju1.4215a9c7754034d940d8.jpg",
     "static/media/placeholder.png": "/static/media/placeholder.6518f8835dfcfa1159df.png",
+    "static/media/harrison.png": "/static/media/harrison.1ed98fa2351d862b0818.png",
+    "static/media/harvard.png": "/static/media/harvard.014cd2820b8b7f9669e0.png",
+    "static/media/yale.png": "/static/media/yale.7d1145bc67f64f33ca74.png",
+    "static/media/princeton.png": "/static/media/princeton.3d4e8d34f2382232e9b7.png",
     "static/media/cvklogo_white.png": "/static/media/cvklogo_white.4b8e5cf4cc32c21c977d.png",
     "index.html": "/index.html",
     "main.4afa22b2.css.map": "/static/css/main.4afa22b2.css.map",
-    "main.043abf52.js.map": "/static/js/main.043abf52.js.map",
+    "main.61a58185.js.map": "/static/js/main.61a58185.js.map",
     "787.9d2b8caa.chunk.js.map": "/static/js/787.9d2b8caa.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.4afa22b2.css",
-    "static/js/main.043abf52.js"
+    "static/js/main.61a58185.js"
   ]
 }
